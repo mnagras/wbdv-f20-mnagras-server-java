@@ -1,0 +1,64 @@
+
+
+h1 {
+    text-align: center;
+}
+
+.wbdv-fixed-header {
+    position: fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+    background-color: lightblue;
+
+}
+
+.wbdv-add-course-input-down {
+    position: relative;
+}
+
+.wbdv-fixed-bottom-right-btn {
+    position: fixed;
+    right:0px;
+    bottom:20px;
+}
+
+.wbdv-hamburger {
+}
+
+.wbdv-label {
+}
+. wbdv-course-manager{
+}
+
+
+.wbdv-new-course {
+}
+
+.wbdv-add-course{
+}
+
+.wbdv-title{}
+
+.wbdv-owner{}
+
+.wbdv-last-modified{}
+
+.wbdv-grid-layout{}
+
+.wbdv-list-layout{}
+.wbdv-header wbdv-sort{}
+.wbdv-course{}
+.wbdv-icon{}
+.wbdv-title{}
+.wbdv-owner{}
+.wbdv-modified-date{}
+.wbdv-delete{}
+
+
+
+
+
+
+
+

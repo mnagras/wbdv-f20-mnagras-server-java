@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+          crossorigin="anonymous"/>
+    <link href="../styles.css" rel="stylesheet" type="text/css"/>
+    <link href="course-editor.style.client.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div class="container">
+    <h1 class="wbdv-course-title">
+        <i class="wbdv-course-editor wbdv-close fas fa-times"></i>
+        CS4550
+    </h1>
+
+    <div class="row">
+    <div class="col-2"> <!-- left side -->
+        <h2>Modules</h2>
+        <ul class="wbdv-module-list nav flex-column nav-pills">
+            <li class="wbdv-module-item nav-item">
+                    <a class="nav-link active wbdv-module-item-title" href="#">Module 1 <i class="wbdv-module-item-delete-btn fas fa-minus-circle float-right"></i></a></li>
+            <li class="wbdv-module-item nav-item">
+                    <a class="nav-link wbdv-module-item-title" href="#">Module 2 <i class="wbdv-module-item-delete-btn fas fa-minus-circle float-right"></i></a></li>
+            <li class="wbdv-module-item nav-item">
+                    <a class="nav-link wbdv-module-item-title" href="#">Module 3 <i class="wbdv-module-item-delete-btn fas fa-minus-circle float-right"></i></a></li>
+            <li class="wbdv-module-item nav-item">
+                    <a class="nav-link wbdv-module-item-title" href="#">Module 4 <i class="wbdv-module-item-delete-btn fas fa-minus-circle float-right"></i></a></li>
+            <li class="wbdv-module-item nav-item">
+                    <a class="nav-link wbdv-module-item-title" href="#">Module 5 <i class="wbdv-module-item-delete-btn fas fa-minus-circle float-right"></i></a></li>
+            <li class="wbdv-module-item nav-item">
+                    <a class="nav-link wbdv-module-item-title" href="#">Module 6 <i class="wbdv-module-item-delete-btn fas fa-minus-circle float-right"></i></a></li>
+            <li class="wbdv-module-item nav-item">
+                <a class="wbdv-module-item-add-btn nav-link " href="#">Add Module<i class="fas fa-plus-circle float-right"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="col-15">
+    <h2>Lessons</h2>
+        <ul class="wbdv-lesson-tabs nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link " href="#">Lesson 1 &nbsp;<i class="fas fa-minus-circle float-right"></i></a></li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Lesson 2 &nbsp;<i class="fas fa-minus-circle float-right"></i></a></li>
+            <li class="nav-item">
+                <a class="nav-link " href="#">Lesson 3 &nbsp;<i class="fas fa-minus-circle float-right"></i></a></li>
+            <li class="nav-item">
+                <a class="nav-link " href="#">Lesson 4 &nbsp;<i class="fas fa-minus-circle float-right"></i></a></li>
+            <li class="nav-item">
+                <a class="nav-link " href="#">Lesson 5 &nbsp;<i class="fas fa-minus-circle float-right"></i></a></li>
+            <li class="nav-item">
+                <a class="nav-link " href="#">Lesson 6 &nbsp;<i class="fas fa-minus-circle float-right"></i></a></li>
+            <li class="nav-item">
+                <a class="wbdv-lesson-add-btn nav-link " href="#">Add Lesson &nbsp;<i class="fas fa-plus-circle float-right"></i></a></li>
+        </ul>
+
+        <label class="col-sm-2 col-form-label"></label>
+
+    <h2>Topics</h2>
+    <ul class="wbdv-topic-pill nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Topic 1 &nbsp;<i class="fas fa-minus-circle float-right"></i> </a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Topic 2 &nbsp;<i class="fas fa-minus-circle float-right"></i> </a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Topic 3 &nbsp;<i class="fas fa-minus-circle float-right"></i> </a></li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Topic 4 &nbsp;<i class="fas fa-minus-circle float-right"></i> </a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Topic 5 &nbsp;<i class="fas fa-minus-circle float-right"></i> </a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Topic 6 &nbsp;<i class="fas fa-minus-circle float-right"></i> </a></li>
+        <li class="nav-item">
+            <a class="wbdv-topic-add-btn nav-link" href="#">Add Topic &nbsp;<i class="fas fa-plus-circle float-right"></i> </a></li>
+    </ul>
+
+        <div class="container" style="padding-top: 10px">
+            <div class="buttonRight">
+                <button>Save</button><button>Preview</button>
+            </div>
+
+            <label class="col-sm-2 col-form-label"></label>
+
+            <div style="border: 2px solid black; margin-top: 20px">
+                    <h3>Heading Widget</h3>
+                    <input class="form-control" id="headingwidgets" placeholder="Heading widgets">
+                <div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <select class="form-control" id="widgets" name="widgets">
+                        <option value="widget">Widget name</option>
+                    </select>
+                </div>
+                <label class="col-sm-2 col-form-label"></label>
+
+                <input class="form-control" id="widgetname" placeholder="Widget name">
+
+                <label class="col-sm-2 col-form-label"></label>
+                <h4>Preview</h4>
+                <h3>Heading text</h3>
+
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

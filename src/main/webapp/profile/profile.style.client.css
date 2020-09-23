@@ -1,0 +1,17 @@
+h1 {
+    color: black;
+    text-align: center;
+ }
+
+
+
+  .wbdv-phone { background-color: white}
+  .wbdv-email { background-color: white}
+  .wbdv-dob { background-color: white}
+  .wbdv-role { background-color: white}
+  .wbdv-update { background-color: red}
+  .wbdv-logout { background-color: black}
+  .wbdv-message { background-color: brown}
+
+
+

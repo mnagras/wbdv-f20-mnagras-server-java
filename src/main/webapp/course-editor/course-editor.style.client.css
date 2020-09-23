@@ -1,0 +1,54 @@
+body {
+    padding-top: 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.wbdv-course-title {
+    position: fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+    background-color: lightblue;
+}
+
+.wbdv-course-editor {
+    background-color: skyblue;
+}
+
+.wbdv-close {
+    position:fixed;
+    left:50px;
+    top: 10px
+}
+
+
+.wbdv-lesson-tabs{
+    background-color: lightgray;
+}
+.wbdv-lesson-add-btn{
+    background-color: wheat
+}
+.wbdv-module-list{
+    background-color: pink;
+}
+.wbdv-module-item{
+    background-color: yellow;
+}
+.wbdv-module-item-title{
+    color: red; }
+.wbdv-module-item-delete-btn{
+    color: red;
+}
+
+.wbdv-module-item-add-btn{
+    background-color: peachpuff
+ }
+.wbdv-topic-pill{
+
+}
+.wbdv-topic-add-btn{
+    background-color: skyblue;
+}

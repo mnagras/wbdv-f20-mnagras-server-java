@@ -112,7 +112,9 @@
         userService.updateUser(userId, user)
         .then(status => {
             users[selectedUserIndex] = user;
-            renderUsers(users);}
+            renderUsers(users);
+            selectedUserIndex = -1;
+            }
         )
       }
 

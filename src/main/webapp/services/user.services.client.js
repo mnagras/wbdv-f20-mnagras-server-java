@@ -6,9 +6,10 @@ function AdminUserServiceClient() {
     this.updateUser = updateUser;
     this.url = 'https://wbdv-generic-server.herokuapp.com/api/mnagras/users';
     var self = this;
+    var localURL = "http://localhost:8080/users";
 
     function createUser(user) {
-        return fetch("http://localhost:8080/users", {
+        return fetch(this.url, {
             method: "POST",
             body: JSON.stringify(user),
             headers: {
@@ -20,14 +21,14 @@ function AdminUserServiceClient() {
     }
 
     function findAllUsers() {
-        return fetch('http://localhost:8080/users')
+        return fetch(this.url)
                 .then(function(response){
                     return response.json()
             })
     }
 
     function deleteUser(userId) {
-        return fetch('http://localhost:8080/users' + "/" + userId, {
+        return fetch(this.url + "/" + userId, {
             method: "DELETE"})
             .then(function(response){
                 return response.json()

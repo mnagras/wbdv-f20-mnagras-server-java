@@ -36,5 +36,17 @@ function AdminUserServiceClient() {
     }
 
     function findUserById(userId) {  }
-    function updateUser(userId, user) {  }
+
+    function updateUser(userId, user) {
+        user.userId = userId;
+        return fetch(this.url, {
+            method: "PUT",
+            body: JSON.stringify(user),
+            headers: {
+                "content-type": "application/json"
+            }
+            }).then(function(response){
+                return response.json()
+            })
+    }
 }

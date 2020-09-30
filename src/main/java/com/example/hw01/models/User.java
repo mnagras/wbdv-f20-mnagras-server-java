@@ -14,15 +14,25 @@ public class User {
   private String username;
   private String firstName;
   private String lastName;
+  private String role;
+
+  public String getRole () {
+    return role;
+  }
+
+  public void setRole (String role) {
+    this.role = role;
+  }
 
   public User () {
   }
 
-  public User (int userId, String username, String firstName, String lastName) {
+  public User (int userId, String username, String firstName, String lastName, String role) {
     this.userId = userId;
     this.username = username;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.role = role;
   }
 
   public String getUsername () {

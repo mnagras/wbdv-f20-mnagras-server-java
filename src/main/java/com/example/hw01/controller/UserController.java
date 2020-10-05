@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
   static List<User> users = new ArrayList<User>();
   static {
@@ -23,18 +25,18 @@ public class UserController {
     users.add(new User(456, "mina", "Mina", "Kumar", "Student"));
   }
 
-  @GetMapping("/users")
+  @GetMapping("")
   public List<User> findAllUsers() {
     return users;
   }
 
-  @PostMapping("/users")
+  @PostMapping("")
   public List<User> createUser(@RequestBody User user) {
     users.add(user);
     return users;
   }
 
-  @DeleteMapping("/users/{userId}")
+  @DeleteMapping("/{userId}")
   public List<User> deleteUser(@PathVariable int userId) {
     User u = null;
     for(User user:users) {

@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/courses")
 public class CourseController {
   static List<Course> courses = new ArrayList<Course>();
   static {
@@ -23,18 +25,18 @@ public class CourseController {
     courses.add(new Course(456, "CS2510", "me", "yesterday", "10:05am"));
   }
 
-  @GetMapping("/courses")
+  @GetMapping("")
   public List<Course> findAllcourses() {
     return courses;
   }
 
-  @PostMapping("/courses")
+  @PostMapping("")
   public List<Course> createCourse(@RequestBody Course course) {
     courses.add(course);
     return courses;
   }
 
-  @DeleteMapping("/courses/{courseId}")
+  @DeleteMapping("/{courseId}")
   public List<Course> deleteCourse(@PathVariable int courseId) {
     Course u = null;
     for(Course course:courses) {
@@ -59,8 +61,9 @@ public class CourseController {
     return courses;
   }
 
-  @GetMapping("/course/{courseId}")
-  public Course findCourseById(int courseId) {
+
+  @GetMapping("/{courseId}")
+  public Course findCourseById(@PathVariable int courseId) {
     Course u = null;
     for(Course course:courses) {
       if(course.getCourseId() == courseId) {

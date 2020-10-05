@@ -1,18 +1,18 @@
-function AdminUserServiceClient() {
-    this.createUser = createUser;
-    this.findAllUsers = findAllUsers;
-    this.findUserById = findUserById;
-    this.deleteUser = deleteUser;
-    this.updateUser = updateUser;
-    this.url = 'https://cs4550-hw1-mnagras.herokuapp.com/users';
+function AdminCourseServiceClient() {
+    this.createCourse = createCourse;
+    this.findAllCourses = findAllCourses;
+    this.findCourseById = findCourseById;
+    this.deleteCourse = deleteCourse;
+    this.updateCourse = updateCourse;
+    this.url = 'https://cs4550-hw1-mnagras.herokuapp.com/courses';
     var self = this;
-    //var localURL = "http://localhost:8080/users";
-    //this.url =  "http://localhost:8080/users";
+    //var localURL = "http://localhost:8080/courses";
+    //this.url =  "http://localhost:8080/courses";
 
-    function createUser(user) {
+    function createCourse(course) {
         return fetch(this.url, {
             method: "POST",
-            body: JSON.stringify(user),
+            body: JSON.stringify(course),
             headers: {
                 "content-type": "application/json"
             }
@@ -21,28 +21,28 @@ function AdminUserServiceClient() {
         })
     }
 
-    function findAllUsers() {
+    function findAllCourses() {
         return fetch(this.url)
                 .then(function(response){
                     return response.json()
             })
     }
 
-    function deleteUser(userId) {
-        return fetch(this.url + "/" + userId, {
+    function deleteCourse(courseId) {
+        return fetch(this.url + "/" + courseId, {
             method: "DELETE"})
             .then(function(response){
                 return response.json()
             })
     }
 
-    function findUserById(userId) {  }
+    function findCourseById(courseId) {  }
 
-    function updateUser(userId, user) {
-        user.userId = userId;
+    function updateCourse(courseId, course) {
+        course.courseId = courseId;
         return fetch(this.url, {
             method: "PUT",
-            body: JSON.stringify(user),
+            body: JSON.stringify(course),
             headers: {
                 "content-type": "application/json"
             }

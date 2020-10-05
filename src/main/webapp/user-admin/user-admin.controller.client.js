@@ -7,6 +7,7 @@
 
     let users = [];
     let selectedUserIndex = -1;
+    let maxUserId = 0;
 
     $(main);
 
@@ -42,6 +43,7 @@
         roleFld = $("#roleFld");
         //alert ($('#roleFld :selected').text());
 
+
         const username = usernameFld.val();
         const password = passwordFld.val();
         const firstName = firstNameFld.val();
@@ -50,6 +52,7 @@
         //console.log(role);
 
         const user = {
+            userId: maxUserId,
             username: username,
             password: password,
             firstName: firstName,
@@ -163,9 +166,13 @@
                 $removeBtn.click(() => deleteUser2(i));
                 const $editBtn = rowClone.find('.wbdv-edit');
                 $editBtn.click(() => selectUser(i));
+                if (user.userId > maxUserId) {
+                    maxUserId = user.userId;
+                }
                 tbody.append(rowClone);
 
             }
+            maxUserId++;
         }
 })()
 

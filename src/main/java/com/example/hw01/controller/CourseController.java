@@ -48,9 +48,10 @@ public class CourseController {
     for(Course course:courses) {
       if(course.getCourseId() == courseId) {
         u = course;
+        courses.remove(u);
+        break;
       }
     }
-    courses.remove(u);
     return courses;
   }
 

@@ -2,6 +2,7 @@ package com.example.hw01.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import com.example.hw01.models.Course;
 
@@ -15,16 +16,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/courses")
 public class CourseController {
   static List<Course> courses = new ArrayList<Course>();
   static {
-    courses.add(new Course(123, "CS4550", "me", "09/21/2020", "10:05am"));
-    courses.add(new Course(234, "CS5610", "me", "09/21/2020", "10:05am"));
-    courses.add(new Course(543, "CS3200", "me", "today", "10:05am"));
-    courses.add(new Course(456, "CS2510", "me", "yesterday", "10:05am"));
+    courses.add(new Course((int) (new Date()).getTime(), "CS4550", "me", "09/21/2020", "10:05am"));
+    courses.add(new Course((int) (new Date()).getTime() + 1, "CS5610", "me", "09/21/2020", "10:05am"));
+    courses.add(new Course((int) (new Date()).getTime() + 2, "CS3200", "me", "today", "10:05am"));
+    courses.add(new Course((int) (new Date()).getTime() + 3, "CS2510", "me", "yesterday", "10:05am"));
   }
 
   @GetMapping("")
@@ -34,6 +37,7 @@ public class CourseController {
 
   @PostMapping("")
   public List<Course> createCourse(@RequestBody Course course) {
+    course.setCourseId((int) (new Date()).getTime());
     courses.add(course);
     return courses;
   }
@@ -57,6 +61,7 @@ public class CourseController {
       if (course.getCourseId() == courseId) {
         courses.remove(i);
         courses.add(i, course);
+        System.out.println("Updated course title:" + course.getTitle());
         break;
       }
     }

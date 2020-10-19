@@ -33,19 +33,19 @@ public class CourseController {
     module1.add(new Module((int) (new Date()).getTime() + 2, "Module 3"));
 
     List<Module> module2 = new ArrayList<Module>();
-    module1.add(new Module((int) (new Date()).getTime(), "Module 1"));
-    module1.add(new Module((int) (new Date()).getTime() + 1, "Module 2"));
-    module1.add(new Module((int) (new Date()).getTime() + 2, "Module 3"));
+    module2.add(new Module((int) (new Date()).getTime(), "Module 1"));
+    module2.add(new Module((int) (new Date()).getTime() + 1, "Module 2"));
+    module2.add(new Module((int) (new Date()).getTime() + 2, "Module 3"));
 
     List<Module> module3 = new ArrayList<Module>();
-    module1.add(new Module((int) (new Date()).getTime(), "Module 1"));
-    module1.add(new Module((int) (new Date()).getTime() + 1, "Module 2"));
-    module1.add(new Module((int) (new Date()).getTime() + 2, "Module 3"));
+    module3.add(new Module((int) (new Date()).getTime(), "Module 1"));
+    module3.add(new Module((int) (new Date()).getTime() + 1, "Module 2"));
+    module3.add(new Module((int) (new Date()).getTime() + 2, "Module 3"));
 
     List<Module> module4 = new ArrayList<Module>();
-    module1.add(new Module((int) (new Date()).getTime(), "Module 1"));
-    module1.add(new Module((int) (new Date()).getTime() + 1, "Module 2"));
-    module1.add(new Module((int) (new Date()).getTime() + 2, "Module 3"));
+    module4.add(new Module((int) (new Date()).getTime(), "Module 1"));
+    module4.add(new Module((int) (new Date()).getTime() + 1, "Module 2"));
+    module4.add(new Module((int) (new Date()).getTime() + 2, "Module 3"));
 
 
     courses.add(new Course((int) (new Date()).getTime(), "CS4550", "me", "09/21/2020", "10:05am", module1));

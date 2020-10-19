@@ -19,7 +19,7 @@ public class Module {
     return moduleId;
   }
 
-  public void setModuleId (int courseId) {
+  public void setModuleId (int moduleId) {
     this.moduleId = moduleId;
   }
 

@@ -4,7 +4,7 @@ function AdminCourseServiceClient() {
     this.findCourseById = findCourseById;
     this.deleteCourse = deleteCourse;
     this.updateCourse = updateCourse;
-    this.url = 'https://cs4550-hw1-mnagras.herokuapp.com/courses';
+    this.url = 'https://wbdv-generic-server.herokuapp.com/api/mnagras/courses';
     var self = this;
     //var localURL = "http://localhost:8080/courses";
     //this.url =  "http://localhost:8080/courses";

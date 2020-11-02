@@ -4,7 +4,7 @@ function AdminUserServiceClient() {
     this.findUserById = findUserById;
     this.deleteUser = deleteUser;
     this.updateUser = updateUser;
-    this.url = 'https://cs4550-hw1-mnagras.herokuapp.com/users';
+    this.url = 'https://wbdv-generic-server.herokuapp.com/api/mnagras/users';
     var self = this;
     //var localURL = "http://localhost:8080/users";
     //this.url =  "http://localhost:8080/users";

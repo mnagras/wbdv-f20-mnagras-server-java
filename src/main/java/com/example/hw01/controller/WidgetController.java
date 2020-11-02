@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +21,6 @@ import java.util.List;
 //@CrossOrigin("http://localhost:3000")
 @RequestMapping ("/api")
 public class WidgetController {
-  List<Widget> widgetList = new ArrayList<Widget>();
   WidgetService service = new WidgetService();
 
   @GetMapping("/topics/{tid}/widgets")

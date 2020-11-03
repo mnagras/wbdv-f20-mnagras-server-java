@@ -19,34 +19,35 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 //@CrossOrigin("http://localhost:3000")
-@RequestMapping ("/api")
+
 public class WidgetController {
   WidgetService service = new WidgetService();
 
-  @GetMapping("/topics/{tid}/widgets")
+  @GetMapping("/api/topics/{tid}/widgets")
   public List<Widget> findWidgetsForTopic(@PathVariable("tid") String topicId) {
     return service.findWidgetsForTopic(topicId);
   }
 
-  @GetMapping("/widgets")
+  @GetMapping("/api/widgets")
   public List<Widget> findAllWidgets() {
     return service.findAllWidgets();
   }
 
-  @GetMapping("/widgets/{wid}")
+  @GetMapping("/api/widgets/{wid}")
   public Widget findWidgetById(@PathVariable("wid") String widgetId) {
     return service.findWidgetById(widgetId);
   }
-  @PostMapping("/widgets")
-  public Widget createWidget(@RequestBody Widget widget) {
+  @PostMapping("/api/topics/{topicId}/widgets")
+  public Widget createWidget(@PathVariable("topicId") String topicId, @RequestBody Widget widget) {
+    widget.setTopicId(topicId);
     return service.createWidget(widget);
   }
-  @DeleteMapping("/widgets/{wid}")
-  public Integer deleteWidget(int widgetId) {
-    return null;
+  @DeleteMapping("/api/widgets/{wid}")
+  public Integer deleteWidget(@PathVariable("wid") String widgetId) {
+    return service.deleteWidget(widgetId);
   }
-  @PutMapping("/widgets/{wid}")
-  public Integer updateWidget(int widgetId, Widget newWidget) {
-    return null;
+  @PutMapping("/api/widgets/{wid}")
+  public Integer updateWidget(@PathVariable("wid") String widgetId, @RequestBody Widget newWidget) {
+    return service.updateWidget(widgetId, newWidget);
   }
 }

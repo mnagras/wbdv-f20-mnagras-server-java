@@ -1,5 +1,6 @@
 package com.example.hw01.services;
 
+import com.example.hw01.models.Module;
 import com.example.hw01.models.Widget;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -62,11 +63,27 @@ public class WidgetService {
     return widget;
   }
 
-  public Integer deleteWidget(int widgetId) {
-    return null;
+  public Integer deleteWidget(String widgetId) {
+    Widget u = null;
+    for(Widget widget:widgetList) {
+      if(widget.getId().equals(widgetId)) {
+        u = widget;
+        widgetList.remove(u);
+        return 1;
+      }
+    }
+    return 0;
   }
 
-  public Integer updateWidget(int widgetId, Widget newWidget) {
-    return null;
+  public Integer updateWidget(String widgetId, Widget newWidget) {
+    for (int i=0; i<widgetList.size(); i++) {
+    Widget w = widgetList.get(i);
+      if (w.getId().equals(widgetId)) {
+        widgetList.remove(i);
+        widgetList.add(i, newWidget);
+        return 1;
+      }
+    }
+    return 0;
   }
 }

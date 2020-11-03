@@ -28,7 +28,7 @@ public class Widget {
   }
 
   public void setId (String id) {
-    this.id.equals(id);
+    this.id = id;
   }
 
   public String getType () {

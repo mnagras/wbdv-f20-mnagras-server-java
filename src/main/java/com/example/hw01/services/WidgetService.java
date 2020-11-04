@@ -39,6 +39,8 @@ public class WidgetService {
         widgetsForTopic.add(w);
       }
     }
+
+    widgetsForTopic.sort((o1, o2) -> o1.getWidgetOrder().compareTo(o2.getWidgetOrder()));
     return widgetsForTopic;
   }
 

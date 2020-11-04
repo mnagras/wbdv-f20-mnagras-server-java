@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -40,7 +41,8 @@ public class WidgetService {
       }
     }
 
-    widgetsForTopic.sort((o1, o2) -> o1.getWidgetOrder().compareTo(o2.getWidgetOrder()));
+    widgetsForTopic.sort(Comparator.comparing(Widget::getWidgetOrder));
+
     return widgetsForTopic;
   }
 

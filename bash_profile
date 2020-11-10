@@ -1,0 +1,4 @@
+export DBHOSTNAME=127.0.0.1:3306
+export DBUSERNAME=mnagras
+export DBPASSWORD=Emerald$0323
+export DBSCHEMA=cs4500

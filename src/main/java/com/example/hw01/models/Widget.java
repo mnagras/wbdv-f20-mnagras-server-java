@@ -1,8 +1,18 @@
 package com.example.hw01.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "widgets")
 public class Widget {
   private String name;
-  private String id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
   private String type;
   private int widgetOrder;
   private String text;
@@ -23,11 +33,11 @@ public class Widget {
     this.name = name;
   }
 
-  public String getId () {
+  public Integer getId () {
     return id;
   }
 
-  public void setId (String id) {
+  public void setId (Integer id) {
     this.id = id;
   }
 
@@ -122,7 +132,7 @@ public class Widget {
     this.topicId = topicId;
   }
 
-  public Widget (String name, String id, String type, int widgetOrder, String text, String src,
+  public Widget (String name, Integer id, String type, int widgetOrder, String text, String src,
                  int size, int width, int height, String cssClass, String style, String value,
                  String topicId) {
     this.name = name;

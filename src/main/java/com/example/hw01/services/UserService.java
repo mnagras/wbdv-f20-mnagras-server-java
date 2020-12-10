@@ -1,6 +1,7 @@
 package com.example.hw01.services;
 
 import com.example.hw01.models.User;
+import com.example.hw01.models.Widget;
 import com.example.hw01.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,31 +26,29 @@ public class UserService {
   List<User> userList = new ArrayList<User>();
 
 
-
-
-  public List<User> findAllUsers() {
+  public List<User> findAllUsers () {
     return (List<User>) userRepository.findAll();
 
   }
 
 
-  public User findUserById(Integer userId) {
+  public User findUserById (Integer userId) {
     return userRepository.findById(userId).get();
 
   }
 
-  public User createUser(User user) {
+  public User createUser (User user) {
     return userRepository.save(user);
 
   }
 
-  public void deleteUser(Integer userId) {
+  public void deleteUser (Integer userId) {
     userRepository.deleteById(userId);
 
 
   }
 
-  public User updateUser(Integer userId, User newUser) {
+  public User updateUser (Integer userId, User newUser) {
     User user = userRepository.findById(userId).get();
     user.setFirstName(newUser.getFirstName());
     user.setLastName(newUser.getLastName());
@@ -66,5 +65,9 @@ public class UserService {
     return 0;
 
      */
+  }
+
+  public User findUserByEmail (String email) {
+    return userRepository.findUserByEmail(email);
   }
 }

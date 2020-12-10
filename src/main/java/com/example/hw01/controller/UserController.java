@@ -11,6 +11,8 @@ import com.example.hw01.services.UserService;
 import com.example.hw01.services.WidgetService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,10 +47,34 @@ public class UserController {
     return service.findUserById(userId);
   }
 
+  @PostMapping("/users/login")
+  public ResponseEntity checkUser(@RequestBody User user) {
+    //Check if user exists
+    User oldUser = service.findUserByEmail(user.getEmail());
+    System.out.println("Logging in" + user.getEmail());
+    if (oldUser != null) {
+      if (oldUser.getPassword().equals(user.getPassword())) {
+        System.out.println("login name =" + oldUser.getFirstName());
+        return new ResponseEntity(oldUser, HttpStatus.OK);
+      }
+      else {
+        System.out.println("fail");
+        return new ResponseEntity(HttpStatus.BAD_REQUEST);
+
+      }
+    }
+    return new ResponseEntity(new Error(), HttpStatus.BAD_REQUEST);
+  }
+
   @PostMapping("/users")
-  public User createUser(@RequestBody User user) {
+  public String createUser(@RequestBody User user) {
     user.setUserId((int) (new Date()).getTime());
-    return service.createUser(user);
+    //Check if user exists
+    if (service.findUserByEmail(user.getEmail()) != null) {
+      return "This email is already registered";
+    }
+    service.createUser(user);
+    return "User has been registered";
   }
 
   @DeleteMapping("/users/{userId}")

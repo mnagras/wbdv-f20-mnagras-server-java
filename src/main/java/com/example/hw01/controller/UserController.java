@@ -68,7 +68,6 @@ public class UserController {
 
   @PostMapping("/users")
   public String createUser(@RequestBody User user) {
-    user.setUserId((int) (new Date()).getTime());
     //Check if user exists
     if (service.findUserByEmail(user.getEmail()) != null) {
       return "This email is already registered";

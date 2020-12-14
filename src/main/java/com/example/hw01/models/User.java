@@ -1,10 +1,21 @@
 package com.example.hw01.models;
 
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import java.util.HashSet;
 
 @Entity
 @Table (name = "users")
@@ -12,7 +23,29 @@ public class User {
   @Id
   @GeneratedValue (strategy = GenerationType.IDENTITY)
   private Integer userId;
+  private String firstName;
+  private String lastName;
+  private String email;
+  private String phoneNumber;
+  private String address;
+  private Date dob;
+  private Timestamp registeredDate;
+  private String role;
+/*
+  @OneToMany(cascade = CascadeType.ALL,
+      fetch = FetchType.LAZY,
+      mappedBy = "user")
+  private Set<Review> reviews = new HashSet<>();
 
+
+  public Set<Review> getReviews () {
+    return reviews;
+  }
+
+  public void setReviews (Set<Review> reviews) {
+    this.reviews = reviews;
+  }
+*/
   public Integer getUserId () {
     return userId;
   }
@@ -20,12 +53,6 @@ public class User {
   public void setUserId (Integer userId) {
     this.userId = userId;
   }
-
-  private String firstName;
-  private String lastName;
-  private String email;
-  private String phoneNumber;
-  private String address;
 
   public String getPhoneNumber () {
     return phoneNumber;
@@ -64,7 +91,7 @@ public class User {
     this.password = password;
   }
 
-  private String role;
+
 
   public String getRole () {
     return role;
@@ -99,5 +126,21 @@ public class User {
 
   public void setLastName (String lastName) {
     this.lastName = lastName;
+  }
+
+  public Date getDob () {
+    return dob;
+  }
+
+  public void setDob (Date dob) {
+    this.dob = dob;
+  }
+
+  public Timestamp getRegisteredDate () {
+    return registeredDate;
+  }
+
+  public void setRegisteredDate (Timestamp registeredDate) {
+    this.registeredDate = registeredDate;
   }
 }

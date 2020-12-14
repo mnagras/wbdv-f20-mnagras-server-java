@@ -29,6 +29,18 @@ public class ReviewController {
     return service.findProductReviews(productId);
   }
 
+  @GetMapping ("/reviews/recent")
+  public List<Review> findRecentReviews() {
+    return service.findRecentReviews();
+  }
+
+  @GetMapping ("/reviews/user/{userId}")
+  public List<Review> findReviewsByUserId(@PathVariable ("userId") String strUserId) {
+    System.out.println("Reviews for User in" + strUserId);
+    int userId = Integer.parseInt(strUserId);
+    return service.findUserReviews(userId);
+  }
+
   @PostMapping ("/reviews")
   public List<Review> addReview(@RequestBody Review review) {
     service.createReview(review);

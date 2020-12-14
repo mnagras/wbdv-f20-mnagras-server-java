@@ -47,6 +47,11 @@ public class UserController {
     return service.findUserById(userId);
   }
 
+  @GetMapping("/users/recent")
+  public List<User> findAllRecentUsers() {
+    return service.findAllRecentUsers();
+  }
+
   @PostMapping("/users/login")
   public ResponseEntity checkUser(@RequestBody User user) {
     //Check if user exists
@@ -76,34 +81,15 @@ public class UserController {
     return "User has been registered";
   }
 
+
   @DeleteMapping("/users/{userId}")
-  public void deleteUser(@PathVariable int userId) {
+  public List<User> deleteUser(@PathVariable int userId) {
     service.deleteUser(userId);
-    /*
-    User u = null;
-    for(User user:users) {
-      if(user.getUserId() == userId) {
-        u = user;
-      }
-    }
-    users.remove(u);
-    return users;*/
+    return service.findAllUsers();
   }
 
   @PutMapping("/users/{userId}")
-  public User updateUser(@PathVariable("uid") Integer userId, @RequestBody User newUser) {
+  public User updateUser(@PathVariable("userId") Integer userId, @RequestBody User newUser) {
     return service.updateUser(userId, newUser);
-    /*
-    for (int i=0; i<users.size(); i++) {
-      int userId = users.get(i).getUserId();
-      if (user.getUserId() == userId) {
-        users.remove(i);
-        users.add(i, user);
-        break;
-      }
-    }
-    return users;
-    */
-
   }
 }

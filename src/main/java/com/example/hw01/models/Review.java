@@ -1,14 +1,22 @@
 package com.example.hw01.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.ReadOnlyProperty;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -20,7 +28,7 @@ public class Review {
   private Integer reviewId;
   private Integer userId;
   private Long productId;
-  private String date;
+  private Timestamp date;
   private String comment;
   private boolean bLike;
   @Column (insertable=false, updatable=false)
@@ -28,22 +36,13 @@ public class Review {
   @Column(insertable=false, updatable=false)
   private String lastName;
 
-  public String getFirstName () {
-    return firstName;
-  }
-
-  public void setFirstName (String firstName) {
-    this.firstName = firstName;
-  }
-
-  public String getLastName () {
-    return lastName;
-  }
-
-  public void setLastName (String lastName) {
-    this.lastName = lastName;
-  }
-
+  /*
+  @ManyToOne (fetch = FetchType.LAZY, optional = false)
+  @JoinColumn (name = "user_id", nullable = false)
+  @OnDelete (action = OnDeleteAction.CASCADE)
+  @JsonIgnore
+  private User user;
+*/
   public Integer getReviewId () {
     return reviewId;
   }
@@ -68,11 +67,11 @@ public class Review {
     this.productId = productId;
   }
 
-  public String getDate () {
+  public Timestamp getDate () {
     return date;
   }
 
-  public void setDate (String date) {
+  public void setDate (Timestamp date) {
     this.date = date;
   }
 
@@ -92,10 +91,26 @@ public class Review {
     this.bLike = bLike;
   }
 
+  public String getFirstName () {
+    return firstName;
+  }
+
+  public void setFirstName (String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getLastName () {
+    return lastName;
+  }
+
+  public void setLastName (String lastName) {
+    this.lastName = lastName;
+  }
+
   public Review () {
   }
 
-  public Review (Integer reviewId, Integer userId, Long productId, String date, String comment, boolean bLike) {
+  public Review (Integer reviewId, Integer userId, Long productId, Timestamp date, String comment, boolean bLike) {
     this.reviewId = reviewId;
     this.userId = userId;
     this.productId = productId;

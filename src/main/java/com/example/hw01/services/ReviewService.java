@@ -19,8 +19,12 @@ public class ReviewService {
 
   public List<Review> findProductReviews (Long productId) {
     return reviewRepository.findReviewsByProductId(productId);
-
   }
+
+  public List<Review> findUserReviews (int userId) {
+    return reviewRepository.findReviewsByUserId(userId);
+  }
+
 
   public Review createReview (Review review) {
     return reviewRepository.save(review);
@@ -31,5 +35,9 @@ public class ReviewService {
     reviewRepository.deleteById(reviewId);
 
 
+  }
+
+  public List<Review> findRecentReviews () {
+    return reviewRepository.findRecentReviews();
   }
 }
